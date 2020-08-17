@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { HashRouter, Switch, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store/store';
+import Home from './common/NotFound/Home/Home';
+import SearchInputContainer from './containers/SearchInputContainer';
+import CardContainer from './containers/CardContainer';
+import HeaderContainer from './containers/HeaderContainer';
+import ManagementModalContainer from './containers/ManagementModalContainer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <Provider store={store}>
+    <HashRouter basename="/">
+      <ManagementModalContainer />
+      <HeaderContainer />
+      <SearchInputContainer />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/:city" component={CardContainer} />
+      </Switch>
+    </HashRouter>
+  </Provider>
+);
 
 export default App;

@@ -1,0 +1,17 @@
+.not-found {
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  background-color: $lightest-black;
+  border-radius: 10px;
+  padding: 20px;
+  width: 500px;
+  margin: 50px auto;
+
+  &__title {
+    margin-left: 15px;
+    font-weight: 500;
+  }
+}
