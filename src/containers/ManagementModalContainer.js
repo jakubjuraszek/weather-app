@@ -7,7 +7,7 @@ import ManagementModal from '../components/ManagementModal/ManagementModal';
 
 import * as weatherActionCreators from '../actions/weatherActions';
 
-const ManagementModalContainer = ({ linkedCities, weatherActions, manegamentModalIsOpen }) => {
+const ManagementModalContainer = ({ linkedCities, weatherActions, managementModalIsOpen }) => {
   const onSubmit = (e, values) => {
     e.preventDefault();
     const updatedCities = Object.values(values);
@@ -19,14 +19,14 @@ const ManagementModalContainer = ({ linkedCities, weatherActions, manegamentModa
     <ManagementModal
       onSubmit={onSubmit}
       linkedCities={linkedCities}
-      show={manegamentModalIsOpen}
+      show={managementModalIsOpen}
       onHide={weatherActions.toggleManagementModal}
     />
   );
 };
 
 const mapStateToProps = state => ({
-  manegamentModalIsOpen: state.weather.manegamentModalIsOpen,
+  managementModalIsOpen: state.weather.managementModalIsOpen,
   linkedCities: state.weather.linkedCities,
 });
 
@@ -35,13 +35,13 @@ const mapDispatchToProps = dispatch => ({
 });
 
 ManagementModalContainer.propTypes = {
-  manegamentModalIsOpen: PropTypes.bool,
+  managementModalIsOpen: PropTypes.bool,
   linkedCities: PropTypes.arrayOf(PropTypes.string).isRequired,
   weatherActions: PropTypes.objectOf(PropTypes.func).isRequired,
 };
 
 ManagementModalContainer.defaultProps = {
-  manegamentModalIsOpen: false,
+  managementModalIsOpen: false,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ManagementModalContainer);

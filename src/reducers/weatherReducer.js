@@ -5,7 +5,7 @@ const initialState = {
   fetchRequestCount: 0,
   linkedCities: ['Wroclaw', 'Gdansk', 'Krakow'],
   linkedCitiesWeather: [],
-  manegamentModalIsOpen: false,
+  managementModalIsOpen: false,
   isError: false,
 };
 
@@ -54,7 +54,7 @@ export const weatherReducer = (state = initialState, action) => {
     case types.TOGGLE_MANAGEMENT_MODAL:
       return {
         ...state,
-        manegamentModalIsOpen: !state.manegamentModalIsOpen,
+        managementModalIsOpen: !state.managementModalIsOpen,
       };
     default:
       return state;
